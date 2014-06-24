@@ -1,8 +1,5 @@
-stm32_template
+USART3
 ==============
-
-stm32f4-discovery template
-
 Ready for USART3, so you can connect rs-232 to the discovery board.
 
 [Usage]
@@ -14,6 +11,6 @@ The printf source code from 《stm32庫開發實踐指南》.
 
 
 
-stm32_MEMS
+main
 ==============
-已在main.c中加入printf功能，可以藉由rs232印出加速度計目前X Y Z軸的值到終端機上。
+已在main.c中加入usart3的printf功能，可以藉由rs232印出加速度計目前X Y Z軸的值到終端機上。
