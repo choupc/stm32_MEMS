@@ -64,7 +64,7 @@ static void TIM_Config(void);
   */
 int main(void)
 {
-  USART3_Config();
+  USART3_Config();  //USART3 init
   uint8_t ctrl = 0;
   
   LIS302DL_InitTypeDef  LIS302DL_InitStruct;
@@ -128,11 +128,11 @@ int main(void)
   while(1)
   {
 
-b=(float)((int8_t)Buffer[0]-XOffset)*(int32_t)LIS302DL_SENSITIVITY_2_3G/1000*180/3.14;
+b=(float)((int8_t)Buffer[0]-XOffset)*(int32_t)LIS302DL_SENSITIVITY_2_3G/1000*180/3.14;  //把X軸裡面的值轉換成角度
 if(b<0){
 x_acc=-b;
 temp1=(int8_t)x_acc;
-temp2=(x_acc-temp1)*10000;
+temp2=(x_acc-temp1)*10000;  //把小數點部分乘上10000，以便程式印出(usart3的printf功能無法印出float)
 if(temp2<0){temp2=-temp2;}
 printf("\r\n X_Acc= -%d.%d \r\n", temp1,temp2);
 }
